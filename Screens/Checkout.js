@@ -12,7 +12,7 @@ const Checkout = () => {
             <ScrollView style={{ flex: 2, backgroundColor: '#fff' }}>
                 <FlatList
                     data={[
-                        { key: 'Pumpkin', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "1Kg", review: "255" }, { key: 'Sunflower Oil', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "3Kg", review: "120" }, { key: 'Cauliflower', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "5Kg", review: "100" },
+                        { key: 'Pumpkin', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "1Kg", review: "255" }, { key: 'Sunflower Oil', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "3Kg", review: "120" }, { key: 'Cauliflower', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "5Kg", review: "100" }, { key: 'Cauliflower', uri: "https://i.insider.com/5ebc0ff0fc593d02e70c2633?width=1136&format=jpeg", kg: "5Kg", review: "100" }
 
 
                     ]}

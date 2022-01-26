@@ -7,12 +7,12 @@ const Header = () => {
             <MaterialCommunityIcons name="map-marker-outline" color={"#00316E"} size={25} />
             <View style={{ marginLeft: 5 }}>
                 <View style={{ flexDirection: "row" }}>
-                    <Text style={{ fontSize: 15, color: '#00316E', fontWeight: 'bold' }}>Current Location</Text>
-                    <MaterialCommunityIcons name="chevron-down" color={"#00316E"} size={18} />
+                    <Text style={{ fontSize: 15, color: '#00316E', fontWeight: 'bold' }}>SHOP NAME</Text>
+                   
                 </View>
-                <Text style={{ fontSize: 12, color: 'grey', }}>Dhakka,Uttara</Text>
+               
             </View>
-            <MaterialCommunityIcons name="bell-minus-outline" color={"#00316E"} size={25} style={{ marginLeft: 180 }} />
+          
         </View>
     )
 }

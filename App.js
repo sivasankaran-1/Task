@@ -14,6 +14,10 @@ import OrderCheckout from './Screens/New';
 
 import Payments from './Screens/Payment';
 
+import LoginScreen from './Screens/LoginScreen';
+import SignupScreen from './Screens/SignupScreen';
+import ForgotPassword from './Screens/ForgotPassword';
+
 
 
 
@@ -35,21 +39,21 @@ function App() {
             <MaterialCommunityIcons name="home" color={color} size={25} />
           ),
         }} />
-        <Tab.Screen name="Orders" component={Checkout} options={{
+        <Tab.Screen name="Orders" component={LoginScreen} options={{
           tabBarLabel: 'Orders',
           tabBarIcon: ({ color, size }) => (
             <Icon name="ios-reader-outline" color={color} size={25} />
           ),
         }} />
-        <Tab.Screen name="center" component={OrderCheckout} options={{
+        <Tab.Screen name="center" component={SignupScreen} options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <View
               style={{
                 position: 'absolute',
-                bottom: 10, // space from bottombar
-                height: 68,
-                width: 68,
+            
+                height: 50,
+                width: 50,
                 borderRadius: 50,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -60,7 +64,7 @@ function App() {
             </View>
           )
         }} />
-        <Tab.Screen name="Wishlist" component={Payments} options={{
+        <Tab.Screen name="Wishlist" component={ForgotPassword} options={{
           tabBarLabel: 'Wishlist',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="heart-outline" color={color} size={25} />
