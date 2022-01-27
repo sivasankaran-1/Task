@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   const [username,setusername] = useState("")
   const[password,setpassword] = useState("")
   const[email,setemail] = useState("")
@@ -14,12 +14,13 @@ const SignupScreen = () => {
   return (
     <View style={styles.root}>
     <Image source={Logo} style={[styles.logo]} resizeMode="contain"/>
+  
      <CustomInput placeholder="Username" value={username} setValue={setusername}/>
      <CustomInput placeholder="Email" value={email} setValue={setemail}/>
      <CustomInput placeholder="Address" value={Address} setValue={setAddress}/>
      <CustomInput placeholder="Password" value={password} setValue={setpassword} secureTextEntry={true}/>
      <CustomButton text="Signup" onpress={onpresssignin}/>
-     <Text style={styles.dontxt}>Already have an account? <Text style={{color:"#3B71F3"}}>Login</Text></Text>
+     <Text style={styles.dontxt}>Already have an account? <Text style={{color:"#3B71F3"}} onPress={()=>navigation.navigate("Login")}>Login</Text></Text>
     </View>
   );
 };

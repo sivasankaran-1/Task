@@ -41,11 +41,11 @@ const OrderCheckout = () => {
             <View style={{ flex: 2 }}>
                 <Text style={{ fontSize: 18, color: '#00316E', fontWeight: 'bold', marginLeft: 20, marginTop: 25 }}>Shipping Address</Text>
                 <Text style={{ fontSize: 15, color: 'grey', fontWeight: '', marginLeft: 20, marginTop: 15, width: 200 }}>periyapalayatheamman koil street,uppalam, puducherry</Text>
-                <Text style={{ fontSize: 18, color: '#00316E', fontWeight: 'bold', marginLeft: 20, marginTop: 50 }}>Payment</Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: "center" }}>
+                {/* <Text style={{ fontSize: 18, color: '#00316E', fontWeight: 'bold', marginLeft: 20, marginTop: 50 }}>Payment</Text> */}
+                {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: "center" }}>
                     <Text style={{ fontSize: 15, color: 'grey', fontWeight: '', marginLeft: 20, marginTop: 15, }}>**** **** **** 2658 </Text>
                     <Image source={{ uri: "https://cdn.vox-cdn.com/thumbor/zqrc6MN4NHTgAEU03-zuXiUBEYw=/0x248:1000x772/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg" }} style={{ height: 20, width: 50, marginRight: 20 }} />
-                </View>
+                </View> */}
                 <Text style={{ fontSize: 18, color: '#00316E', fontWeight: 'bold', marginLeft: 20, marginTop: 50 }}>Total : $897</Text>
                 <View style={{ backgroundColor: "#32CD32", padding: 15, marginHorizontal: 60, bottom: 0, marginTop: 50, borderRadius: 10 }}>
                     <Text style={{ textAlign: "center", color: '#fff', fontWeight: 'bold' }}>Place Order</Text>

@@ -6,27 +6,28 @@ import CustomButton from './CustomButton';
 
 
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [username,setusername] = useState("")
   const[password,setpassword] = useState("")
   
     const height = useWindowDimensions();
 
-   const onpress =()=>{
+   const onpressLogin =()=>{
      console.log("ok")
+          navigation.navigate("Main")
    } 
    const onforgotPress =()=>{
-     console.log("forgot");
+     navigation.navigate("Forgot")
    }
   return (
     <View style={styles.root}>
      <Image source={Logo} style={[styles.logo]} resizeMode="contain"/>
      <CustomInput placeholder="Username" value={username} setValue={setusername}/>
      <CustomInput placeholder="Password" value={password} setValue={setpassword} secureTextEntry={true}/>
-     <CustomButton text="Login" onpress={onpress}/>
+     <CustomButton text="Login" onpress={onpressLogin}/>
      <CustomButton text="Forgot Paasword" onpress={onforgotPress}/>
 
-     <Text style={styles.dontxt}>Dont have an account? <Text style={{color:"#3B71F3"}}>Create One</Text></Text>
+     <Text style={styles.dontxt}>Dont have an account? <Text style={{color:"#3B71F3"}} onPress={()=>navigation.navigate("Register")}>Create One</Text></Text>
 
     </View>
   );

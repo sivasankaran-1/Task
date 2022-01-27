@@ -15,13 +15,17 @@ import BottomNavigation from './BottomNavigation';
 
 const Stack = createNativeStackNavigator();
 const RootNavigation = () => {
+
+
   return (
     <NavigationContainer independent={true}>
     <Stack.Navigator initialRouteName='splash'>
       {/* <Stack.Screen name="splash" component={Splash} /> */}
-      <Stack.Screen name="Login" component={BottomNavigation} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Register" component={SignupScreen} />
       <Stack.Screen name="Forgot" component={ForgotPassword} />
+      <Stack.Screen name="Main" component={BottomNavigation} options={{headerShown:false}}/>
+      
     </Stack.Navigator>
     
   </NavigationContainer>

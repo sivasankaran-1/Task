@@ -3,13 +3,14 @@ import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
-const ForgotPassword = () => {
+const ForgotPassword = ({navigation}) => {
     const [email,setemail] = useState("")
     const sendEmail =()=>{
         console.log("Ok")
     }
     const BacktoLogin =()=>{
         console.log("login")
+        navigation.navigate("Login")
     }
   return (
     <View style={styles.root}>

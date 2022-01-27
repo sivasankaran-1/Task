@@ -13,6 +13,8 @@ import ContactUs from '../Screens/ContactUs';
 import OrderCheckout from '../Screens/New';
 
 import Payments from '../Screens/Payment';
+
+import Wishlist from '../Screens/Wishlist';
 const Tab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
@@ -56,7 +58,7 @@ const BottomNavigation = () => {
                     </View>
                   )
                 }} />
-                <Tab.Screen name="Wishlist" component={Payments} options={{
+                <Tab.Screen name="Wishlist" component={Wishlist} options={{
                   tabBarLabel: 'Wishlist',
                   tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="heart-outline" color={color} size={25} />
