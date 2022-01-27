@@ -15,14 +15,14 @@ const Home = () => {
             <View style={{ flexDirection: "row", justifyContent: 'space-between', marginHorizontal: 20, alignItems: "center" }}>
 
                 {/* <Text style={{ backgroundColor: "#fff", padding: 15, height: 50, justifyContent: "center", elevation: 5 }}> Siva</Text> */}
-                <MaterialCommunityIcons name="sort-reverse-variant" color={"#00316E"} size={25} />
+                {/* <MaterialCommunityIcons name="sort-reverse-variant" color={"#00316E"} size={25} /> */}
                 <Searchbar
-                    placeholder="Searchforproduct"
+                    placeholder="Search Product"
                     onChangeText={onChangeSearch}
                     value={searchQuery}
-                    style={{ width: 250, height: 45, borderWidth: 1, borderColor: "light-grey" }}
+                    style={{ width: "100%", height: 45, borderWidth: 1, borderColor: "light-grey" }}
                 />
-                <MaterialCommunityIcons name="format-list-checkbox" color={"#00316E"} size={25} />
+                {/* <MaterialCommunityIcons name="format-list-checkbox" color={"#00316E"} size={25} /> */}
 
 
 
@@ -143,7 +143,7 @@ const Home = () => {
                                 <Image source={{ uri: item.uri }} style={{ height: 50, width: 50 }} resizeMode="cover" />
                             </View> */}
                             <View style={{ flex: 3, backgroundColor: '#fff', marginLeft: 10, alignItems: 'center', justifyContent: "center" }}>
-                                <MaterialCommunityIcons name="heart-outline" color={"grey"} size={20} style={{ alignSelf: "flex-end" }} />
+                                {/* <MaterialCommunityIcons name="heart-outline" color={"grey"} size={20} style={{ alignSelf: "flex-end" }} /> */}
                                 <Image source={{ uri: item.uri }} style={{ height: 50, width: 50 }} resizeMode="cover" />
                                 <Text style={{ fontSize: 15, color: '#00316E', fontWeight: 'bold' }}>{item.key}</Text>
 

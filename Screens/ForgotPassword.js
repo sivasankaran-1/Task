@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,Image, useWindowDimensions } from 'react-native';
 import React,{useState} from 'react';
-
+import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 const ForgotPassword = () => {
@@ -13,6 +13,7 @@ const ForgotPassword = () => {
     }
   return (
     <View style={styles.root}>
+        <Image source={Logo} style={[styles.logo]} resizeMode="contain"/>
       <Text style={{fontSize:20,fontWeight:'bold',color:'#3B71F3'}}>Confirm Your Email</Text>
       <CustomInput placeholder="Enter your Email" value={email} setValue={setemail}/>
       <CustomButton text="Confirm" onpress ={sendEmail}/>
@@ -28,4 +29,9 @@ const styles = StyleSheet.create({
         alignItems:"center",
         padding:20,flex:1,backgroundColor:"#F9FBFC"
     },
+    logo:{
+      width:"70%",
+      maxWidth:300,
+      maxHeight:200
+  },
 });
