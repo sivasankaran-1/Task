@@ -25,7 +25,7 @@ const BottomNavigation = () => {
           }
           return (
        
-              <Tab.Navigator tabBarOptions={customTabBarStyle} initialRouteName="Home" tabBarOptions={{ keyboardHidesTabBar: true }} screenOptions={{ headerShown: false }}>
+              <Tab.Navigator tabBarOptions={customTabBarStyle} initialRouteName="Home" tabBarOptions={{ keyboardHidesTabBar: true }} screenOptions={{ headerShown: false }} >
                 <Tab.Screen name="Home" component={HomeScreen} options={{
                   tabBarLabel: 'Home',
         

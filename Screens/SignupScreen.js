@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View,Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
@@ -9,6 +9,7 @@ const SignupScreen = ({navigation}) => {
   const[password,setpassword] = useState("")
   const[email,setemail] = useState("")
   const [Address,setAddress] = useState("")
+  const [mobile,setmobile] = useState("")
   
   
   const onpresssignin =()=>{
@@ -22,6 +23,10 @@ const SignupScreen = ({navigation}) => {
       alert("Please Enter Valid Address")
 
     }
+    else if(mobile =="" || mobile.length<10){
+      alert("Please Enter Valid Mobile Number")
+
+    }
     else if(password =="" || password.length<8){
       alert("Please Enter Valid Address must have 8 digits")
 
@@ -33,9 +38,11 @@ const SignupScreen = ({navigation}) => {
       ).then((user)=>{
         console.log(user.uid)
         if (user) {
+          console.log(user.phoneNumber)
           auth()
             .currentUser.updateProfile({
               displayName: username,
+            
              
             })
             .then(() => navigation.navigate("Login"))
@@ -66,6 +73,7 @@ const SignupScreen = ({navigation}) => {
      <CustomInput placeholder="Username" value={username} setValue={setusername}/>
      <CustomInput placeholder="Email" value={email} setValue={setemail}/>
      <CustomInput placeholder="Address" value={Address} setValue={setAddress}/>
+     <CustomInput placeholder="Mobile Number" value={mobile} setValue={setmobile}/>
      <CustomInput placeholder="Password" value={password} setValue={setpassword} secureTextEntry={true}/>
      <CustomButton text="Signup" onpress={onpresssignin}/>
      <Text style={styles.dontxt}>Already have an account? <Text style={{color:"#3B71F3"}} onPress={()=>navigation.navigate("Login")}>Login</Text></Text>

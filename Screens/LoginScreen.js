@@ -24,6 +24,9 @@ const LoginScreen = ({navigation}) => {
          useremail,password
        ).then((user)=>{
          console.log(user)
+         navigation.navigate("Main")
+       }).catch((e)=>{
+         alert(e)
        })
      }
    } 

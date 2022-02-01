@@ -2,7 +2,34 @@ import React from 'react'
 import { ScrollView, StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TextInput } from 'react-native-paper'
+import RazorpayCheckout from 'react-native-razorpay';
 const OrderCheckout = () => {
+
+    const Onrozar =()=>{
+        var options = {
+            description: 'Credits towards consultation',
+            image: 'https://i.imgur.com/3g7nmJC.png',
+            currency: 'INR',
+            key: 'rzp_test_fdUsdyiZ3r1iJE', // Your api key
+            amount: '5000' *100,
+            name: 'PYAAR MINT',
+            // method:"netbanking",
+            prefill: {
+              email: 'void@razorpay.com',
+              contact: '9191919191',
+              name: '',
+           
+            },
+            theme: {color: '#00316E'}
+          }
+          RazorpayCheckout.open(options).then((data) => {
+            // handle success
+            alert(`Success: ${data.razorpay_payment_id}`);
+          }).catch((error) => {
+            // handle failure
+            alert(`Error: ${error.code} | ${error.description}`);
+          });
+    }
     return (
         <ScrollView style={styles.container}>
             <View style={{ flexDirection: 'row', padding: 15, alignItems: "center" }}>
@@ -47,7 +74,7 @@ const OrderCheckout = () => {
                     <Image source={{ uri: "https://cdn.vox-cdn.com/thumbor/zqrc6MN4NHTgAEU03-zuXiUBEYw=/0x248:1000x772/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg" }} style={{ height: 20, width: 50, marginRight: 20 }} />
                 </View> */}
                 <Text style={{ fontSize: 18, color: '#00316E', fontWeight: 'bold', marginLeft: 20, marginTop: 50 }}>Total : $897</Text>
-                <View style={{ backgroundColor: "#32CD32", padding: 15, marginHorizontal: 60, bottom: 0, marginTop: 50, borderRadius: 10 }}>
+                <View style={{ backgroundColor: "#32CD32", padding: 15, marginHorizontal: 60, bottom: 0, marginTop: 50, borderRadius: 10 }} onStartShouldSetResponder={Onrozar}>
                     <Text style={{ textAlign: "center", color: '#fff', fontWeight: 'bold' }}>Place Order</Text>
                 </View>
             </View>

@@ -20,6 +20,7 @@
     "react-native": "0.66.3",
     "react-native-gesture-handler": "^2.2.0",
     "react-native-paper": "^4.10.1",
+    "react-native-razorpay": "^2.2.8",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
     "react-native-step-indicator": "^1.0.3",
