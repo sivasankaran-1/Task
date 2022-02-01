@@ -3,10 +3,22 @@ import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
+import auth from "@react-native-firebase/auth";
 const ForgotPassword = ({navigation}) => {
     const [email,setemail] = useState("")
     const sendEmail =()=>{
-        console.log("Ok")
+       if(email ==""){
+         alert("Please Enter Valid Email")
+       }
+       else{
+         auth().sendPasswordResetEmail(email).then((user)=>{
+           console.log("ok")
+           alert("Please check your Email")
+         }).catch((e)=>{
+           console.log(e)
+         })
+
+       }
     }
     const BacktoLogin =()=>{
         console.log("login")

@@ -1,8 +1,16 @@
 import { StyleSheet, Text, View,Image } from 'react-native';
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 
-const Splash = () => {
+const Splash = ({navigation}) => {
+  const [animating, setAnimating] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimating(false);
+      navigation.push("Login")
+     
+    }, 2000);
+  }, []);
   return (
     <View style={styles.root}>
       <Image source={Logo} style={[styles.logo]} resizeMode="contain"/>

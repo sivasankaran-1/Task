@@ -1,15 +1,63 @@
-import { StyleSheet, Text, View,Image, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View,Image, ScrollView } from 'react-native';
 import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
+import auth from "@react-native-firebase/auth";
 const SignupScreen = ({navigation}) => {
   const [username,setusername] = useState("")
   const[password,setpassword] = useState("")
   const[email,setemail] = useState("")
   const [Address,setAddress] = useState("")
+  
+  
   const onpresssignin =()=>{
-    console.log("ok")
+    if (username=="" || username.length<5){
+      alert("Please Enter Valid Username")
+    }
+    else if(email =="" ){
+      alert("Please Enter Valid email")
+
+    }else if(Address ==""){
+      alert("Please Enter Valid Address")
+
+    }
+    else if(password =="" || password.length<8){
+      alert("Please Enter Valid Address must have 8 digits")
+
+    }
+    else{
+      auth().createUserWithEmailAndPassword(
+        email,
+        password
+      ).then((user)=>{
+        console.log(user.uid)
+        if (user) {
+          auth()
+            .currentUser.updateProfile({
+              displayName: username,
+             
+            })
+            .then(() => navigation.navigate("Login"))
+            .catch((error) => {
+              alert(error);
+              console.error(error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+          alert(
+            "That email address is already in use!"
+          );
+        } else {
+          alert(error.message);
+        }
+ 
+      })
+    }
+   
   } 
   return (
     <View style={styles.root}>

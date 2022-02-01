@@ -3,18 +3,29 @@ import React,{useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
-
-
+import auth from "@react-native-firebase/auth";
 
 const LoginScreen = ({navigation}) => {
-  const [username,setusername] = useState("")
+  const [useremail,setuseremail] = useState("")
   const[password,setpassword] = useState("")
   
     const height = useWindowDimensions();
 
    const onpressLogin =()=>{
-     console.log("ok")
-          navigation.navigate("Main")
+     if(useremail =="" ){
+       alert("Please Enter Valid Email")
+
+     }
+     else if(password==""){
+      alert("Please Enter Valid Password")
+     }
+     else{
+       auth().signInWithEmailAndPassword(
+         useremail,password
+       ).then((user)=>{
+         console.log(user)
+       })
+     }
    } 
    const onforgotPress =()=>{
      navigation.navigate("Forgot")
@@ -22,7 +33,7 @@ const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.root}>
      <Image source={Logo} style={[styles.logo]} resizeMode="contain"/>
-     <CustomInput placeholder="Username" value={username} setValue={setusername}/>
+     <CustomInput placeholder="Useremail" value={useremail} setValue={setuseremail}/>
      <CustomInput placeholder="Password" value={password} setValue={setpassword} secureTextEntry={true}/>
      <CustomButton text="Login" onpress={onpressLogin}/>
      <CustomButton text="Forgot Paasword" onpress={onforgotPress}/>

@@ -72,6 +72,7 @@ const Home = () => {
 
                 <TouchableOpacity
                     style={styles.categoryBtn}
+                    // onPress={()=>alert("ok")}
                 >
                     <View style={styles.categoryIcon}>
                         <Image
