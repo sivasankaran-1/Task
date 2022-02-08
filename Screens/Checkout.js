@@ -29,6 +29,7 @@ const Checkout = ({navigation}) => {
               console.log(temp)
               const data = temp.filter(el=>el.uid===UID)
               console.log(data)
+              
               setCartdata(data)
          
             });
