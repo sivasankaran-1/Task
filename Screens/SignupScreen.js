@@ -4,6 +4,7 @@ import Logo from '../assets/images/Logo_1.png'
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import auth from "@react-native-firebase/auth";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const SignupScreen = ({navigation}) => {
   const [username,setusername] = useState("")
   const[password,setpassword] = useState("")
@@ -38,14 +39,18 @@ const SignupScreen = ({navigation}) => {
       ).then((user)=>{
         console.log(user.uid)
         if (user) {
+          AsyncStorage.setItem('mobile', mobile),
           console.log(user.phoneNumber)
           auth()
             .currentUser.updateProfile({
               displayName: username,
+              phoneNumber: mobile
             
              
             })
-            .then(() => navigation.navigate("Login"))
+            .then(() => 
+          
+            navigation.navigate("Login"))
             .catch((error) => {
               alert(error);
               console.error(error);

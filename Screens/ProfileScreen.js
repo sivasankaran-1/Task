@@ -1,18 +1,30 @@
 import {StyleSheet, Text, View,Button} from 'react-native';
-import React from 'react';
-
+import React,{useState,useEffect} from 'react';
+import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Profile = ({navigation}) => {
+  const [username,setusername] = useState(auth().currentUser.displayName)
+  const [email,setemail] = useState(auth().currentUser.email)
+  const [mobile,setmobile] = useState()
   const onpressLogout =()=>{
     console.log("Logout")
     navigation.navigate("Login")
   }
+
+  useEffect( () => {
+    AsyncStorage.getItem("mobile").then((value) => {
+     setmobile(value)
+  })
+   
+  }, []);
+  
   return (
     <View style={styles.root}>
       <View style={{padding:20,backgroundColor:"#fff",marginVertical:120,marginHorizontal:20,borderRadius:10,elevation:10}}>
         <Text style={styles.contacttxt}>PROFILE</Text>
-        <Text style={styles.info}>NAME : <Text style={{color:"#000"}}>Name get from firebase</Text></Text>
-        <Text style={styles.info}>EMAIL : <Text style={{color:"#000"}}>email from firebase</Text></Text>
-        <Text style={styles.info}>MOBILE : <Text style={{color:"#000"}}>number get from async</Text></Text>
+        <Text style={styles.info}>NAME : <Text style={{color:"#000"}}>{username}</Text></Text>
+        <Text style={styles.info}>EMAIL : <Text style={{color:"#000"}}>{email}</Text></Text>
+        <Text style={styles.info}>MOBILE : <Text style={{color:"#000"}}>{mobile}</Text></Text>
         {/* <Text style={styles.info}>FACEBOOK :</Text> */}
         {/* <Text style={styles.info}>INSTAGRAM :</Text> */}
         <Button title='Logout' color={"red"} onPress={onpressLogout}/>

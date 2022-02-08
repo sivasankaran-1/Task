@@ -1,9 +1,11 @@
 import React,{useEffect,useState} from 'react'
-import { ScrollView, StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, FlatList, Image, Pressable, Button } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TextInput } from 'react-native-paper'
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 import RazorpayCheckout from 'react-native-razorpay';
+
 const OrderCheckout = () => {
     let [listData, setListData] = useState([]);
 
@@ -55,6 +57,26 @@ const OrderCheckout = () => {
             alert(`Error: ${error.code} | ${error.description}`);
           });
     }
+
+    const Addcart =(item)=>{
+        firestore()
+        .collection('Cart')
+        .add({
+            Price:item.price,
+            ProductName: item.ProductName,
+        //   address: userAddress,
+             uid:auth().currentUser.uid
+
+        })
+        .then(() => {
+            console.log("added")
+       
+        })
+        .catch((error) => {
+            console.log(e)
+          
+        });
+    }
     return (
         <ScrollView style={styles.container}>
             <View style={{ flexDirection: 'row', padding: 15, alignItems: "center" }}>
@@ -74,11 +96,12 @@ const OrderCheckout = () => {
                             <View style={{ flex: 3, backgroundColor: '#fff', marginLeft: 10, }}>
                                 <Text style={{ fontSize: 15, color: '#00316E', fontWeight: 'bold' }}>{item.ProductName}</Text>
                                 <Text style={{ fontSize: 13, color: 'grey', fontWeight: 'bold' }}>{item.price} RS</Text>
+                                <Pressable onPress={()=>Addcart(item)}>
+                                <Text style={{padding:10,backgroundColor:"red",width:50,borderRadius:5,marginVertical:10,color:"white"}}>ADD</Text>
+                                </Pressable>
                               
                             </View>
                         </View>
-
-
 
 
                     </View>

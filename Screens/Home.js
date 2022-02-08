@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from '../components/Header';
 
-const Home = () => {
+const Home = ({navigation}) => {
     const [searchQuery, setSearchQuery] = React.useState('');
 
     const onChangeSearch = query => setSearchQuery(query);
@@ -72,7 +72,7 @@ const Home = () => {
 
                 <TouchableOpacity
                     style={styles.categoryBtn}
-                    // onPress={()=>alert("ok")}
+                    onPress={()=>navigation.navigate("Wishlist")}
                 >
                     <View style={styles.categoryIcon}>
                         <Image
