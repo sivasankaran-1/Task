@@ -37,6 +37,15 @@ const Checkout = ({navigation}) => {
       }, []);
 
 
+    //   const onPressRemove =(item)=>{
+    //       console.log("Remove items" + item.ProductName)
+    //       firestore().collection("Cart").delete().then(()=>{
+    //           if()
+    //       })
+
+    //   }
+
+
 
     return (
         <ScrollView style={styles.container}>
@@ -56,7 +65,7 @@ const Checkout = ({navigation}) => {
                                 <View style={{ flex: 3, backgroundColor: '#fff', marginLeft: 10, }}>
                                 <Text style={{ fontSize: 15, color: '#00316E', fontWeight: 'bold' }}>{item.ProductName}</Text>
                                 <Text style={{ fontSize: 13, color: 'grey', fontWeight: 'bold' }}>{item.Price} RS</Text>
-                                <Pressable >
+                                <Pressable onPress={()=>onPressRemove(item)}>
                                 <Text style={{padding:10,backgroundColor:"red",width:90,borderRadius:5,marginVertical:10,color:"white"}}>REMOVE</Text>
                                 </Pressable>
                                 </View>

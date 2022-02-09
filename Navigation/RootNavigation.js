@@ -13,6 +13,7 @@ import ContactUs from '../Screens/ContactUs';
 import Splash from '../Screens/Splash';
 
 import BottomNavigation from './BottomNavigation';
+import Profile from '../Screens/Profile';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,7 +34,7 @@ const RootNavigation = () => {
   return (
     <NavigationContainer independent={true}>
     <Stack.Navigator initialRouteName='splash'>
-      <Stack.Screen name="splash" component={Splash} options={{headerShown:false, transitionSpec: {
+      {/* <Stack.Screen name="splash" component={Splash} options={{headerShown:false, transitionSpec: {
       open: TransitionSpecs.TransitionIOSSpec,
       close: TransitionSpecs.TransitionIOSSpec,
     },
@@ -50,8 +51,12 @@ const RootNavigation = () => {
       <Stack.Screen name="Forgot" component={ForgotPassword} options={{transitionSpec: {
       open: TransitionSpecs.TransitionIOSSpec,
       close: TransitionSpecs.TransitionIOSSpec,
-    }}}/>
+    }}}/> */}
       <Stack.Screen name="Main" component={BottomNavigation} options={{headerShown:false,transitionSpec: {
+      open: TransitionSpecs.TransitionIOSSpec,
+      close: TransitionSpecs.TransitionIOSSpec,
+    }}}/>
+     <Stack.Screen name="Profile" component={Profile} options={{headerShown:false,transitionSpec: {
       open: TransitionSpecs.TransitionIOSSpec,
       close: TransitionSpecs.TransitionIOSSpec,
     }}}/>

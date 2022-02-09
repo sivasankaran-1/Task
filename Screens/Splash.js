@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View,Image } from 'react-native';
 import React,{useEffect,useState} from 'react';
 import Logo from '../assets/images/Logo_1.png'
+import auth from "@react-native-firebase/auth";
 
 const Splash = ({navigation}) => {
   const [animating, setAnimating] = useState(true);

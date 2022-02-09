@@ -9,6 +9,7 @@ const Profile = ({navigation}) => {
   const onpressLogout =()=>{
     console.log("Logout")
     navigation.navigate("Login")
+    AsyncStorage.setItem("mobile","")
   }
 
   useEffect( () => {

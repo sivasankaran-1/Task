@@ -6,28 +6,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Header from '../components/Header';
 
 const Home = ({navigation}) => {
-    const [searchQuery, setSearchQuery] = React.useState('');
 
-    const onChangeSearch = query => setSearchQuery(query);
+
+
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
             <Header />
-            <View style={{ flexDirection: "row", justifyContent: 'space-between', marginHorizontal: 20, alignItems: "center" }}>
-
-                {/* <Text style={{ backgroundColor: "#fff", padding: 15, height: 50, justifyContent: "center", elevation: 5 }}> Siva</Text> */}
-                {/* <MaterialCommunityIcons name="sort-reverse-variant" color={"#00316E"} size={25} /> */}
-                <Searchbar
-                    placeholder="Search Product"
-                    onChangeText={onChangeSearch}
-                    value={searchQuery}
-                    style={{ width: "100%", height: 45, borderWidth: 1, borderColor: "light-grey" }}
-                />
-                {/* <MaterialCommunityIcons name="format-list-checkbox" color={"#00316E"} size={25} /> */}
-
-
-
-
-            </View>
+     
             <View style={styles.sliderContainer}>
                 <Swiper
                     autoplay
@@ -72,7 +57,7 @@ const Home = ({navigation}) => {
 
                 <TouchableOpacity
                     style={styles.categoryBtn}
-                    onPress={()=>navigation.navigate("Wishlist")}
+                    onPress={()=>navigation.navigate("Profile")}
                 >
                     <View style={styles.categoryIcon}>
                         <Image
